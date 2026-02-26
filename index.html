@@ -1,82 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Shree Laxmi Laboratory</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #eef2f7;
-            text-align: center;
-        }
+<title>Shree Laxmi Laboratory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+margin:0;
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#0a2540,#134e5e);
+color:white;
+text-align:center;
+}
 
-        .header {
-            background: #0a2540;
-            color: white;
-            padding: 25px;
-        }
+.header{
+padding:30px 15px;
+}
 
-        .header h1 {
-            margin: 5px 0;
-        }
+.header h1{
+margin:10px 0 5px;
+font-size:28px;
+}
 
-        .container {
-            padding: 20px;
-        }
+.badge{
+background:#00c896;
+display:inline-block;
+padding:6px 12px;
+border-radius:20px;
+font-size:14px;
+margin-top:8px;
+}
 
-        .btn {
-            display: block;
-            width: 80%;
-            margin: 15px auto;
-            padding: 18px;
-            font-size: 18px;
-            background: #0a2540;
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-        }
+.container{
+padding:20px;
+}
 
-        .btn:hover {
-            background: #00a8cc;
-        }
+.btn{
+display:block;
+background:white;
+color:#0a2540;
+padding:16px;
+margin:12px auto;
+width:85%;
+border-radius:12px;
+text-decoration:none;
+font-weight:bold;
+}
 
-        .footer {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #333;
-        }
-    </style>
+.btn:hover{
+background:#e0e0e0;
+}
+
+.form-box{
+background:white;
+color:black;
+padding:15px;
+border-radius:12px;
+margin-top:20px;
+}
+
+input,select{
+width:95%;
+padding:10px;
+margin:8px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.submit-btn{
+background:#0a2540;
+color:white;
+border:none;
+padding:12px;
+border-radius:8px;
+width:100%;
+}
+
+.footer{
+margin-top:20px;
+font-size:14px;
+}
+</style>
 </head>
 
 <body>
 
 <div class="header">
-    <h1>Shree Laxmi Laboratory</h1>
-    <p>Near Naganaray Circle, Refinery Road,<br>
-    Pachpadra, Balotra 344032</p>
+<h1>Shree Laxmi Laboratory</h1>
+<p>Near Naganaray Circle, Refinery Road,<br>Pachpadra, Balotra 344032</p>
+<div class="badge">Home Collection Available</div>
 </div>
 
 <div class="container">
 
-    <a class="btn" href="tel:9660050748">📞 Call Now</a>
+<a class="btn" href="tel:9660050748">📞 Call Now</a>
+<a class="btn" href="https://wa.me/919660050748">💬 WhatsApp Support</a>
+<a class="btn" href="https://maps.google.com/?q=Near Naganaray Circle Pachpadra Balotra">📍 Get Directions</a>
+<a class="btn" href="https://instagram.com/shree_laxmi_laboratory_">📱 Instagram Page</a>
 
-    <a class="btn" href="https://wa.me/919660050748">💬 WhatsApp Support</a>
-
-    <a class="btn" href="#">📅 Book Appointment</a>
-
-    <a class="btn" href="#">📄 Download Report</a>
-
-    <a class="btn" href="#">💳 Online Payment</a>
-
-    <a class="btn" href="https://instagram.com/shree_laxmi_laboratory_">
-        📲 Instagram Page
-    </a>
-
+<div class="form-box">
+<h3>Book Appointment</h3>
+<form action="https://wa.me/919660050748" method="get" target="_blank">
+<input type="text" name="text" placeholder="Enter Name & Test Required" required>
+<button class="submit-btn" type="submit">Submit on WhatsApp</button>
+</form>
 </div>
 
+<a class="btn" href="#">📄 Download Report</a>
+<a class="btn" href="#">💳 Online Payment</a>
+
 <div class="footer">
-    Contact: 9660050748
+Contact: 9660050748
+</div>
+
 </div>
 
 </body>
