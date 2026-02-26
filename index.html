@@ -7,8 +7,8 @@
 <style>
 body{
 margin:0;
-font-family:'Segoe UI', sans-serif;
-background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 color:white;
 text-align:center;
 }
@@ -18,41 +18,64 @@ padding:30px 15px;
 }
 
 .header h1{
-margin:5px 0;
+margin:10px 0;
 font-size:28px;
 }
 
 .address{
-font-size:14px;
 opacity:0.9;
+font-size:14px;
 }
 
 .glass{
-background: rgba(255,255,255,0.1);
-backdrop-filter: blur(12px);
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
 border-radius:20px;
 padding:20px;
-margin:20px;
+margin:15px;
 box-shadow:0 8px 32px rgba(0,0,0,0.3);
 }
 
 .btn{
 display:block;
 width:85%;
-margin:15px auto;
-padding:16px;
-border-radius:14px;
-text-decoration:none;
+margin:12px auto;
+padding:15px;
 font-size:16px;
+background:#00e0a4;
+color:black;
+text-decoration:none;
+border-radius:30px;
 font-weight:bold;
-background:rgba(255,255,255,0.15);
-color:white;
 transition:0.3s;
 }
 
 .btn:hover{
+background:#00b383;
+}
+
+select{
+padding:12px;
+width:85%;
+border-radius:12px;
+border:none;
+margin-top:10px;
+}
+
+input{
+padding:10px;
+width:80%;
+margin:8px;
+border-radius:8px;
+border:none;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:20px;
 background:#00e0a4;
-color:black;
+font-weight:bold;
 }
 
 .footer{
@@ -81,90 +104,86 @@ Pachpadra, Balotra 344032
 
 <h3>📅 Book Appointment</h3>
 
-<form action="https://script.google.com/macros/s/AKfycbx0PK-HS0r63wnBkNzGAAbWukY-7Wv_TBhzb8n4faBbvLRyaQPlHuvla3jkA7iJ_C6h/exec" method="post">
-
-<input type="text" name="name" placeholder="Enter Your Name" required><br><br>
-
-<input type="text" name="mobile" placeholder="Enter Mobile Number" required><br><br>
-
-<input type="text" name="test" placeholder="Test Name (e.g. Bharat Fit-5)" required><br><br>
-
-<input type="date" name="date" required><br><br>
-
+<form action="PASTE_YOUR_GOOGLE_SCRIPT_LINK_HERE" method="POST">
+<input type="text" name="name" placeholder="Patient Name" required><br>
+<input type="text" name="mobile" placeholder="Mobile Number" required><br>
+<input type="text" name="test" placeholder="Test Name" required><br>
+<input type="date" name="date" required><br>
 <button type="submit">Submit Appointment</button>
-
 </form>
-
-<a class="btn" href="#">📄 Download Report</a>
-
-<h3>💳 Online Payment</h3>
-
-<h3>🧪 Test & Price List</h3>
-
-<div class="glass">
-
-<p><b>🔥 Bharat Fit-5 Package</b> – ₹2399</p>
-<p><b>💎 Full Body Package</b> – ₹4999</p>
-<p><b>Bharat Fit Package 1</b> – ₹899</p>
-
-<hr>
-
-<p><b>CBC</b> – ₹150</p>
-<p><b>Thyroid Profile</b> – ₹450</p>
-<p><b>Lipid Profile</b> – ₹400</p>
-
-<hr>
-
-<p><b>Blood Sugar (Fasting)</b> – ₹50</p>
-<p><b>Blood Sugar (PP)</b> – ₹50</p>
-<p><b>Blood Sugar (Random)</b> – ₹50</p>
-<p><b>HbA1c</b> – ₹400</p>
-<p><b>ESR</b> – ₹100</p>
-
-<hr>
-
-<p><b>LFT</b> – ₹350</p>
-<p><b>KFT</b> – ₹350</p>
-
-<hr>
-
-<p><b>Dengue Card Test</b> – ₹600</p>
-<p><b>Malaria Card Test</b> – ₹100</p>
-<p><b>Widal Test</b> – ₹100</p>
-<p><b>Typhi Dot Card</b> – ₹350</p>
-
-<hr>
-
-<p><b>HIV</b> – ₹250</p>
-<p><b>HBsAg</b> – ₹250</p>
-<p><b>VDRL</b> – ₹150</p>
 
 </div>
 
+<div class="glass">
+
+<h3>🧪 Test & Price List</h3>
+
+<p><b>Bharat Fit-5</b> - ₹2399</p>
+<p><b>Full Body Package</b> - ₹4999</p>
+<p><b>Bharat Fit Package 1</b> - ₹899</p>
+<hr>
+
+<p><b>CBC</b> - ₹150</p>
+<p><b>Thyroid Profile</b> - ₹450</p>
+<p><b>Lipid Profile</b> - ₹400</p>
+<hr>
+
+<p><b>Blood Sugar (F/PP/Random)</b> - ₹50</p>
+<p><b>HbA1c</b> - ₹400</p>
+<p><b>ESR</b> - ₹100</p>
+<hr>
+
+<p><b>LFT</b> - ₹350</p>
+<p><b>KFT</b> - ₹350</p>
+<hr>
+
+<p><b>Dengue Card</b> - ₹600</p>
+<p><b>Malaria Card</b> - ₹100</p>
+<p><b>Widal</b> - ₹100</p>
+<p><b>Typhi Dot</b> - ₹350</p>
+<hr>
+
+<p><b>HIV</b> - ₹250</p>
+<p><b>HBsAg</b> - ₹250</p>
+<p><b>VDRL</b> - ₹150</p>
+
+</div>
+
+<div class="glass">
+
+<h3>💳 Online Payment</h3>
+
+<select id="amountSelect" onchange="updateAmount()">
+<option value="">Select Test</option>
+
+<option value="2399">Bharat Fit-5 - ₹2399</option>
+<option value="4999">Full Body Package - ₹4999</option>
+<option value="899">Bharat Fit Package 1 - ₹899</option>
+<option value="150">CBC - ₹150</option>
+<option value="450">Thyroid Profile - ₹450</option>
+<option value="400">Lipid Profile - ₹400</option>
+<option value="50">Blood Sugar - ₹50</option>
+<option value="400">HbA1c - ₹400</option>
+<option value="100">ESR - ₹100</option>
+<option value="350">LFT - ₹350</option>
+<option value="350">KFT - ₹350</option>
+<option value="600">Dengue Card - ₹600</option>
+<option value="100">Malaria Card - ₹100</option>
+<option value="100">Widal - ₹100</option>
+<option value="350">Typhi Dot - ₹350</option>
+<option value="250">HIV - ₹250</option>
+<option value="250">HBsAg - ₹250</option>
+<option value="150">VDRL - ₹150</option>
+
+</select>
+
 <br><br>
 
-<a id="payBtn" class="btn" href="#">
-💳 Pay Now
-</a>
+<a id="payBtn" class="btn" href="#">💳 Pay Now</a>
 
-<br><br>
+<a id="whatsappBtn" class="btn" href="#">📤 Send Payment Screenshot</a>
 
-<a id="whatsappBtn" class="btn" href="#">
-📲 Send Payment Screenshot
-</a>
-
-<script>
-function updateAmount(){
-var amount = document.getElementById("amountSelect").value;
-if(amount != ""){
-document.getElementById("payBtn").href =
-"upi://pay?pa=9660050748@ybl&pn=Shree%20Laxmi%20Laboratory&am="+amount+"&cu=INR";
-
-document.getElementById("whatsappBtn").href =
-"https://wa.me/919660050748?text=Hello%20Shree%20Laxmi%20Laboratory,%20I%20have%20paid%20₹"+amount+"%20for%20my%20test.%20Please%20find%20the%20screenshot%20attached.";
-}
-}
-</script>
+</div>
 
 <a class="btn" href="https://instagram.com/shree_laxmi_laboratory_">📱 Instagram Page</a>
 
@@ -173,7 +192,18 @@ Contact: 9660050748<br>
 Home Collection Available
 </div>
 
-</div>
+<script>
+function updateAmount(){
+var amount = document.getElementById("amountSelect").value;
+if(amount !== ""){
+document.getElementById("payBtn").href =
+"upi://pay?pa=9660050748@ybl&pn=Shree%20Laxmi%20Laboratory&am="+amount+"&cu=INR";
+
+document.getElementById("whatsappBtn").href =
+"https://wa.me/919660050748?text=Hello%20Shree%20Laxmi%20Laboratory,%20I%20have%20paid%20₹"+amount+"%20please%20find%20the%20screenshot.";
+}
+}
+</script>
 
 </body>
 </html>
