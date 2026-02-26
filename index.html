@@ -97,7 +97,40 @@ Pachpadra, Balotra 344032
 
 <a class="btn" href="#">📄 Download Report</a>
 
-<a class="btn" href="#">💳 Online Payment</a>
+<h3>💳 Online Payment</h3>
+
+<select id="amountSelect" onchange="updateAmount()">
+<option value="">Select Test</option>
+<option value="500">Bharat Fit-5 - ₹500</option>
+<option value="300">Thyroid Profile - ₹300</option>
+<option value="200">Sugar Test - ₹200</option>
+<option value="1000">Full Body Checkup - ₹1000</option>
+</select>
+
+<br><br>
+
+<a id="payBtn" class="btn" href="#">
+💳 Pay Now
+</a>
+
+<br><br>
+
+<a id="whatsappBtn" class="btn" href="#">
+📲 Send Payment Screenshot
+</a>
+
+<script>
+function updateAmount(){
+var amount = document.getElementById("amountSelect").value;
+if(amount != ""){
+document.getElementById("payBtn").href =
+"upi://pay?pa=9660050748@ybl&pn=Shree%20Laxmi%20Laboratory&am="+amount+"&cu=INR";
+
+document.getElementById("whatsappBtn").href =
+"https://wa.me/919660050748?text=Hello%20Shree%20Laxmi%20Laboratory,%20I%20have%20paid%20₹"+amount+"%20for%20my%20test.%20Please%20find%20the%20screenshot%20attached.";
+}
+}
+</script>
 
 <a class="btn" href="https://instagram.com/shree_laxmi_laboratory_">📱 Instagram Page</a>
 
