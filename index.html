@@ -110,7 +110,50 @@ Pachpadra, Balotra 344032
 <input type="text" name="test" placeholder="Test Name" required><br>
 <input type="date" name="date" required><br>
 <button type="submit">Submit Appointment</button>
-</form>
+</form><h3>📄 Download Report</h3>
+
+<input type="text" id="searchMobile" placeholder="Enter Mobile Number">
+<br><br>
+<button onclick="searchReport()">Check Report</button>
+
+<p id="reportResult"></p>
+
+<script>
+function searchReport() {
+
+  var mobile = document.getElementById("searchMobile").value;
+
+  var sheetURL = "https://script.google.com/macros/s/AKfycbx0PK-HS0r63wnBkNzGAAbWukY-7Wv_TBhzb8n4faBbvLRyaQPlHuvla3jkA7iJ_C6h/exec";
+
+  fetch(sheetURL)
+  .then(response => response.json())
+  .then(data => {
+
+    var found = false;
+
+    data.forEach(row => {
+
+      if(row.Mobile == mobile &&
+         row.Status == "Report Ready" &&
+         row.ReportLink != "") {
+
+        document.getElementById("reportResult").innerHTML =
+          '<a href="'+row.ReportLink+'" target="_blank">Click Here to Download Report</a>';
+
+        found = true;
+      }
+
+    });
+
+    if(!found) {
+      document.getElementById("reportResult").innerHTML =
+        "Report not ready yet.";
+    }
+
+  });
+
+}
+</script>
 
 </div>
 
