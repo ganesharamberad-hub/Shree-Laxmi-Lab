@@ -121,45 +121,40 @@ Pachpadra, Balotra 344032
 <script>
 function searchReport() {
 
-  var mobile = document.getElementById("searchMobile").value;
+  var mobile = document.getElementById("searchMobile").value.trim();
 
   var sheetURL = "https://script.google.com/macros/s/AKfycbx0PK-HS0r63wnBkNzGAAbWukY-7Wv_TBhzb8n4faBbvLRyaQPlHuvla3jkA7iJ_C6h/exec";
 
   fetch(sheetURL)
-  .then(response => response.json())
-  .then(data => {
+    .then(response => response.json())
+    .then(data => {
 
-    var found = false;
+      var found = false;
 
-    data.forEach((row, index) => {
+      data.forEach(row => {
 
-  if (index === 0) return; // header skip
+        var sheetMobile = String(row.Mobile).trim();
+        var sheetStatus = String(row.Status).trim().toLowerCase();
+        var sheetLink = row.ReportLink;
 
-  var sheetMobile = String(row[1]).trim();
-  var sheetStatus = String(row[5]).trim().toLowerCase();
-  var sheetLink = row[6];
+        if (
+          sheetMobile === mobile &&
+          sheetStatus.includes("report ready") &&
+          sheetLink !== ""
+        ) {
+          document.getElementById("reportResult").innerHTML =
+            '<a href="' + sheetLink + '" target="_blank">Click Here to Download Report</a>';
+          found = true;
+        }
 
-  if (
-    sheetMobile === String(mobile).trim() &&
-    sheetStatus === "report ready" &&
-    sheetLink
-  ) {
+      });
 
-    document.getElementById("reportResult").innerHTML =
-      '<a href="' + sheetLink + '" target="_blank">Click Here to Download Report</a>';
+      if (!found) {
+        document.getElementById("reportResult").innerHTML =
+          "Report not ready yet.";
+      }
 
-    found = true;
-  }
-
-});
-
-    if(!found) {
-      document.getElementById("reportResult").innerHTML =
-        "Report not ready yet.";
-    }
-
-  });
-
+    });
 }
 </script>
 
