@@ -134,7 +134,7 @@ function searchReport() {
     data.forEach(row => {
 
       if(String(row.Mobile) == String(mobile) &&
-   row.Status == "Report Ready" &&
+   row.Status.trim().toLowerCase() == "report ready" &&
    row.ReportLink != "") {
 
         document.getElementById("reportResult").innerHTML =
