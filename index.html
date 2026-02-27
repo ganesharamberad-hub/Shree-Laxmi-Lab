@@ -133,9 +133,9 @@ function searchReport() {
 
     data.forEach(row => {
 
-      if(row.Mobile == mobile &&
-         row.Status == "Report Ready" &&
-         row.ReportLink != "") {
+      if(String(row.Mobile) == String(mobile) &&
+   row.Status == "Report Ready" &&
+   row.ReportLink != "") {
 
         document.getElementById("reportResult").innerHTML =
           '<a href="'+row.ReportLink+'" target="_blank">Click Here to Download Report</a>';
