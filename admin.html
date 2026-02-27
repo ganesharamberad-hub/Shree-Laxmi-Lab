@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard - Shree Laxmi Lab</title>
+<style>
+body{
+font-family:Arial;
+background:#0f2027;
+color:white;
+padding:20px;
+}
+table{
+width:100%;
+background:white;
+color:black;
+border-collapse:collapse;
+}
+th,td{
+padding:8px;
+border:1px solid #ddd;
+font-size:14px;
+}
+h1{
+text-align:center;
+}
+.count{
+font-size:18px;
+margin-bottom:20px;
+}
+</style>
+</head>
+<body>
+
+<h1>Shree Laxmi Laboratory - Admin Panel</h1>
+
+<div class="count">
+Total Bookings: <span id="total">Loading...</span>
+</div>
+
+<table id="dataTable">
+<thead>
+<tr>
+<th>Date</th>
+<th>Name</th>
+<th>Mobile</th>
+<th>Test</th>
+<th>Appointment Date</th>
+<th>Payment</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+
+<script>
+
+fetch("https://script.google.com/macros/s/AKfycbx0PK-HS0r63wnBkNzGAAbWukY-7Wv_TBhzb8n4faBbvLRyaQPlHuvla3jkA7iJ_C6h/exec")
+.then(response => response.json())
+.then(data => {
+
+document.getElementById("total").innerText = data.length - 1;
+
+let rows = "";
+
+for(let i=1; i<data.length; i++){
+rows += "<tr>";
+for(let j=0; j<data[i].length; j++){
+rows += "<td>" + data[i][j] + "</td>";
+}
+rows += "</tr>";
+}
+
+document.querySelector("#dataTable tbody").innerHTML = rows;
+
+})
+.catch(error=>{
+document.getElementById("total").innerText="Error loading data";
+});
+
+</script>
+
+</body>
+</html>
