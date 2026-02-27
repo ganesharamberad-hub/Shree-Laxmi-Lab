@@ -131,21 +131,27 @@ function searchReport() {
 
     var found = false;
 
-    data.forEach(row => {
+    data.forEach((row, index) => {
 
-      if (
-  String(row["Mobile"]).replace(/\D/g, "") === String(mobile).replace(/\D/g, "") &&
-  String(row["Status"]).toLowerCase().includes("report ready") &&
-  row["ReportLink"]
-) {
+  if (index === 0) return; // header skip
 
-        document.getElementById("reportResult").innerHTML =
-          '<a href="'+row.ReportLink+'" target="_blank">Click Here to Download Report</a>';
+  var sheetMobile = String(row[1]).trim();
+  var sheetStatus = String(row[5]).trim().toLowerCase();
+  var sheetLink = row[6];
 
-        found = true;
-      }
+  if (
+    sheetMobile === String(mobile).trim() &&
+    sheetStatus === "report ready" &&
+    sheetLink
+  ) {
 
-    });
+    document.getElementById("reportResult").innerHTML =
+      '<a href="' + sheetLink + '" target="_blank">Click Here to Download Report</a>';
+
+    found = true;
+  }
+
+});
 
     if(!found) {
       document.getElementById("reportResult").innerHTML =
