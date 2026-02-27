@@ -133,9 +133,9 @@ function searchReport() {
 
     data.forEach(row => {
 
-      if(String(row.Mobile) == String(mobile) &&
-   row.Status.trim().toLowerCase() == "report ready" &&
-   row.ReportLink != "") {
+      if(String(row.Mobile).trim() === String(mobile).trim() &&
+   row.Status.trim().toLowerCase() === "report ready" &&
+   row.ReportLink.trim() !== "") {
 
         document.getElementById("reportResult").innerHTML =
           '<a href="'+row.ReportLink+'" target="_blank">Click Here to Download Report</a>';
