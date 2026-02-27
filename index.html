@@ -133,9 +133,11 @@ function searchReport() {
 
     data.forEach(row => {
 
-      if(String(row.Mobile).trim() === String(mobile).trim() &&
-   row.Status.trim().toLowerCase() === "report ready" &&
-   row.ReportLink.trim() !== "") {
+      if (
+  String(row["Mobile"]).replace(/\D/g, "") === String(mobile).replace(/\D/g, "") &&
+  String(row["Status"]).toLowerCase().includes("report ready") &&
+  row["ReportLink"]
+) {
 
         document.getElementById("reportResult").innerHTML =
           '<a href="'+row.ReportLink+'" target="_blank">Click Here to Download Report</a>';
