@@ -85,6 +85,7 @@ opacity:0.8;
 }
 </style>
  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
@@ -204,6 +205,30 @@ options: {
   });
 
  }
+ function downloadPDF() {
+
+const doc = new window.jspdf.jsPDF();
+
+var totalIncome = document.getElementById("totalIncome").innerText;
+var paidAmount = document.getElementById("paidAmount").innerText;
+var dueAmount = document.getElementById("dueAmount").innerText;
+var totalAppointments = document.getElementById("totalAppointments").innerText;
+var netToday = document.getElementById("netToday").innerText;
+
+doc.setFontSize(16);
+doc.text("Shree Laxmi Laboratory", 20, 20);
+
+doc.setFontSize(12);
+doc.text("Daily Income Report", 20, 35);
+
+doc.text("Total Income: Rs " + totalIncome, 20, 50);
+doc.text("Paid Amount: Rs " + paidAmount, 20, 60);
+doc.text("Pending Due: Rs " + dueAmount, 20, 70);
+doc.text("Total Appointments: " + totalAppointments, 20, 80);
+doc.text("Net Today: Rs " + netToday, 20, 90);
+
+doc.save("Daily_Report.pdf");
+}
 </script>
 <div id="dashboardSection" class="glass" style="display:none; margin-top:20px;">
   <h2>Owner Dashboard</h2>
@@ -215,6 +240,8 @@ options: {
   <h3>Net Today: ₹<span id="netToday">0</span></h3>
  <br>
 <canvas id="incomeChart" width="300" height="200"></canvas>
+ <br><br>
+<button onclick="downloadPDF()">Download Today Report (PDF)</button>
 </div>
 </div>
 
