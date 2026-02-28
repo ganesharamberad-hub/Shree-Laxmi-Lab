@@ -298,9 +298,8 @@ table.innerHTML+=`
 <td>${b.time}</td>
 <td>${b.status}</td>
 <td>
-<button class="view-btn">VIEW</button>
-<button class="icon-btn">⬇</button>
-<button class="icon-btn">🔗</button>
+<button onclick="updateStatus('${b.id}','Processed')">Processed</button>
+<button onclick="updateStatus('${b.id}','Printed')">Printed</button>
 </td>
 </tr>
 `;
