@@ -154,11 +154,11 @@ padding:20px;
 
 <div class="sidebar">
 <h2>🧪 Lab Panel</h2>
-<a href="#" onclick="showSection('dashboard'); return false;">Dashboard</a>
-<a href="#" onclick="showSection('appointments'); return false;">Appointments</a>
-<a href="#" onclick="showSection('reports'); return false;">Reports</a>
-<a href="#" onclick="showSection('income'); return false;">Income</a>
-<a href="#" onclick="showSection('settings'); return false;">Settings</a>
+<a href="#" onclick="showSection('dashboardSectionPanel'); return false;">Dashboard</a>
+<a href="#" onclick="showSection('appointmentsSectionPanel'); return false;">Appointments</a>
+<a href="#" onclick="showSection('reportsSectionPanel'); return false;">Reports</a>
+<a href="#" onclick="showSection('incomeSectionPanel'); return false;">Income</a>
+<a href="#" onclick="showSection('settingsSectionPanel'); return false;">Settings</a>
 </div>
 
 <div class="main">
@@ -173,7 +173,7 @@ Near Naganaray Circle, Refinery Road,<br>
 Pachpadra, Balotra 344032
 </div>
 </div>
-
+<div id="dashboardSectionPanel">
 <div class="glass">
 
 <a class="btn" href="tel:9660050748">📞 Call Now</a>
@@ -429,7 +429,7 @@ el.style.display="none";
 }
 }
 
-var active = document.getElementById(section+"SectionPanel");
+var active = document.getElementById(section);
 if(active){
 active.style.display="block";
 }
