@@ -94,11 +94,11 @@ margin-right:5px;
 cursor:pointer;
 }
 
-.collected{background:#17a2b8;color:white;}
-.ack{background:#007bff;color:white;}
-.processed{background:#28a745;color:white;}
-.printed{background:#20c997;color:white;}
-.psn{background:#dc3545;color:white;}
+.collected { background:#17a2b8; color:white; }
+.acknowledged { background:#007bff; color:white; }
+.processed { background:#28a745; color:white; }
+.printed { background:#20c997; color:white; }
+.psn/snr { background:#dc3545; color:white; }
 
 /* TABLE */
 table{
@@ -219,7 +219,7 @@ const table=document.getElementById("bookingTable");
 table.innerHTML="";
 data.forEach(b=>{
 table.innerHTML+=`
-<tr class="green">
+<tr class="${b.status.toLowerCase()}">
 <td>${b.id}</td>
 <td>${b.name}</td>
 <td>${b.mobile}</td>
