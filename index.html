@@ -84,6 +84,7 @@ font-size:13px;
 opacity:0.8;
 }
 </style>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -119,8 +120,21 @@ Pachpadra, Balotra 344032
 
 <p id="reportResult"></p>
 <br><br>
-<button onclick="loadDashboard()">Owner Dashboard</button>
+<input type="password" id="ownerPass" placeholder="Enter Owner Password">
+<br><br>
+<button onclick="checkPassword()">Owner Dashboard</button>
 <script>
+ function checkPassword() {
+
+var pass = document.getElementById("ownerPass").value;
+
+if (pass === "1234") {
+    loadDashboard();
+} else {
+    alert("Wrong Password!");
+}
+
+}
 function searchReport() {
 
   var mobile = document.getElementById("searchMobile").value.trim();
@@ -171,6 +185,21 @@ function searchReport() {
     document.getElementById("dueAmount").innerText = data.dueAmount;
     document.getElementById("totalAppointments").innerText = data.totalAppointments;
     document.getElementById("netToday").innerText = data.netToday;
+   var ctx = document.getElementById("incomeChart").getContext("2d");
+
+new Chart(ctx, {
+type: "bar",
+data: {
+    labels: ["Total", "Paid", "Due"],
+    datasets: [{
+        label: "Amount ₹",
+        data: [data.totalIncome, data.paidAmount, data.dueAmount]
+    }]
+},
+options: {
+    responsive: true
+}
+});
 
   });
 
@@ -184,6 +213,8 @@ function searchReport() {
   <p>Pending Due: ₹<span id="dueAmount">0</span></p>
   <p>Total Appointments: <span id="totalAppointments">0</span></p>
   <h3>Net Today: ₹<span id="netToday">0</span></h3>
+ <br>
+<canvas id="incomeChart" width="300" height="200"></canvas>
 </div>
 </div>
 
