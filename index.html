@@ -237,14 +237,14 @@ margin:2px;
 
 let allBookings = [];
 
-function loadFromSheet() {
+function loadFromSheet(){
 fetch("https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec")
-.then(res => res.json())
-.then(data => {
-allBookings = data;
+.then(res=>res.json())
+.then(data=>{
+allBookings=data;
 loadTable(allBookings);
 })
-.catch(err => console.log("Error:", err));
+.catch(err=>console.log("Error:",err));
 }
 
 loadFromSheet();
