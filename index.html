@@ -118,7 +118,8 @@ Pachpadra, Balotra 344032
 <button onclick="searchReport()">Check Report</button>
 
 <p id="reportResult"></p>
-
+<br><br>
+<button onclick="loadDashboard()">Owner Dashboard</button>
 <script>
 function searchReport() {
 
@@ -157,8 +158,33 @@ function searchReport() {
 
     });
 }
-</script>
+ function loadDashboard() {
 
+  fetch("https://script.google.com/macros/s/AKfycbx0PK-HS0r63wnBkNzGAAbWukY-7Wv_TBhzb8n4faBbvLRyaQPlHuvla3jkA7iJ_C6h/exec?action=dashboard")
+  .then(res => res.json())
+  .then(data => {
+
+    document.getElementById("dashboardSection").style.display = "block";
+
+    document.getElementById("totalIncome").innerText = data.totalIncome;
+    document.getElementById("paidAmount").innerText = data.paidAmount;
+    document.getElementById("dueAmount").innerText = data.dueAmount;
+    document.getElementById("totalAppointments").innerText = data.totalAppointments;
+    document.getElementById("netToday").innerText = data.netToday;
+
+  });
+
+ }
+</script>
+<div id="dashboardSection" class="glass" style="display:none; margin-top:20px;">
+  <h2>Owner Dashboard</h2>
+
+  <p>Total Income Today: ₹<span id="totalIncome">0</span></p>
+  <p>Paid Amount: ₹<span id="paidAmount">0</span></p>
+  <p>Pending Due: ₹<span id="dueAmount">0</span></p>
+  <p>Total Appointments: <span id="totalAppointments">0</span></p>
+  <h3>Net Today: ₹<span id="netToday">0</span></h3>
+</div>
 </div>
 
 <div class="glass">
