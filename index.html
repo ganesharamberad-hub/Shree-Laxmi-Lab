@@ -289,17 +289,18 @@ function submitBooking() {
 function loadTable(data){
 const table=document.getElementById("bookingTable");
 table.innerHTML="";
+
 data.forEach(b=>{
 table.innerHTML+=`
-<tr class="${b.status.toLowerCase()}">
-<td>${b.id}</td>
-<td>${b.name}</td>
-<td>${b.mobile}</td>
-<td>${b.time}</td>
-<td>${b.status}</td>
+<tr class="${b.Status.toLowerCase()}">
+<td>${b.ID}</td>
+<td>${b.Name}</td>
+<td>${b.Mobile}</td>
+<td>${b.Time}</td>
+<td>${b.Status}</td>
 <td>
-<button onclick="updateStatus('${b.id}','Processed')">Processed</button>
-<button onclick="updateStatus('${b.id}','Printed')">Printed</button>
+<button onclick="updateStatus('${b.ID}','Processed')">Processed</button>
+<button onclick="updateStatus('${b.ID}','Printed')">Printed</button>
 </td>
 </tr>
 `;
@@ -308,13 +309,13 @@ table.innerHTML+=`
 
 function filterStatus(status){
 if(status=="all"){
-loadTable(bookings);
+loadTable(allBookings);
 }else{
-loadTable(bookings.filter(b=>b.status==status));
+loadTable(allBookings.filter(b=>b.Status==status));
 }
 }
 
-loadTable(bookings);
+loadTable(allBookings);
 
 </script>
 
