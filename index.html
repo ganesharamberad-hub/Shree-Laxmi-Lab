@@ -182,6 +182,11 @@ margin:2px;
 <button class="psn" onclick="filterStatus('PSN')">PSN/SNR</button>
 </div>
 
+  <div style="margin-bottom:15px;">
+    <input type="text" id="name" placeholder="Patient Name" style="padding:6px;">
+    <input type="text" id="mobile" placeholder="Mobile Number" style="padding:6px;">
+    <button onclick="addBooking()" style="padding:6px 12px;">Save Booking</button>
+</div>
 <table>
 <thead>
 <tr>
@@ -213,7 +218,25 @@ loadTable(allBookings);
 }
 
 loadFromSheet();
+function addBooking() {
+  const booking = {
+    id: Date.now(),
+    name: document.getElementById("name").value,
+    mobile: document.getElementById("mobile").value,
+    time: new Date().toLocaleString(),
+    status: "Collected"
+  };
 
+  fetch("https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec", {
+    method: "POST",
+    body: JSON.stringify(booking)
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert("Booking Added Successfully");
+    loadFromSheet();
+  });
+}
 function loadTable(data){
 const table=document.getElementById("bookingTable");
 table.innerHTML="";
