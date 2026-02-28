@@ -110,13 +110,58 @@ animation: fadeIn 0.6s ease-in-out;
 from{opacity:0; transform:translateY(20px);}
 to{opacity:1; transform:translateY(0);}
 }
+ .layout{
+display:flex;
+min-height:100vh;
+}
+
+.sidebar{
+width:220px;
+background:#111827;
+color:white;
+padding:20px;
+}
+
+.sidebar h2{
+margin-bottom:20px;
+}
+
+.sidebar a{
+display:block;
+color:#cbd5e1;
+padding:10px;
+text-decoration:none;
+border-radius:8px;
+margin-bottom:5px;
+}
+
+.sidebar a:hover{
+background:#1f2937;
+color:white;
+}
+
+.main{
+flex:1;
+padding:20px;
+}
 </style>
  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
+<div class="layout">
 
+<div class="sidebar">
+<h2>🧪 Lab Panel</h2>
+<a href="#">Dashboard</a>
+<a href="#">Appointments</a>
+<a href="#">Reports</a>
+<a href="#">Income</a>
+<a href="#">Settings</a>
+</div>
+
+<div class="main">
 <div class="header">
 <h1>🧪 Shree Laxmi Laboratory</h1>
 <p style="opacity:0.8; margin-top:5px;">
@@ -366,6 +411,7 @@ document.getElementById("whatsappBtn").href =
 }
 }
 </script>
-
+</div> <!-- main -->
+</div> <!-- layout -->
 </body>
 </html>
