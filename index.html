@@ -163,7 +163,7 @@ margin:2px;
 
 <div class="topbar">
 <div class="badge">YOUR BADGE IS BRONZE</div>
-<button class="icon-btn">+ New Booking</button>
+<button class="icon-btn" onclick="openModal()">+ New Booking</button>
 </div>
 
 <div class="tabs">
@@ -182,10 +182,40 @@ margin:2px;
 <button class="psn" onclick="filterStatus('PSN')">PSN/SNR</button>
 </div>
 
-  <div style="margin-bottom:15px;">
-    <input type="text" id="name" placeholder="Patient Name" style="padding:6px;">
-    <input type="text" id="mobile" placeholder="Mobile Number" style="padding:6px;">
-    <button onclick="addBooking()" style="padding:6px 12px;">Save Booking</button>
+  <div id="bookingModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);">
+
+  <div style="background:white; width:400px; margin:80px auto; padding:20px; border-radius:8px;">
+
+    <div id="step1">
+      <h3>Enter Mobile Number</h3>
+      <input type="text" id="mobileStep" placeholder="Mobile Number" style="width:100%; padding:8px;">
+      <br><br>
+      <button onclick="nextStep(2)">Next</button>
+    </div>
+
+    <div id="step2" style="display:none;">
+      <h3>Patient Details</h3>
+      <input type="text" id="patientName" placeholder="Patient Name" style="width:100%; padding:8px;"><br><br>
+      <input type="number" id="age" placeholder="Age" style="width:100%; padding:8px;"><br><br>
+      <select id="gender" style="width:100%; padding:8px;">
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+      <br><br>
+      <button onclick="nextStep(3)">Next</button>
+    </div>
+
+    <div id="step3" style="display:none;">
+      <h3>Test & Payment</h3>
+      <input type="text" id="testName" placeholder="Test Name" style="width:100%; padding:8px;"><br><br>
+      <input type="number" id="amount" placeholder="Amount" style="width:100%; padding:8px;"><br><br>
+      <button onclick="submitBooking()">Submit Booking</button>
+    </div>
+
+    <br>
+    <button onclick="closeModal()">Cancel</button>
+
+  </div>
 </div>
 <table>
 <thead>
@@ -218,24 +248,43 @@ loadTable(allBookings);
 }
 
 loadFromSheet();
-function addBooking() {
-  const booking = {
-    id: Date.now(),
-    name: document.getElementById("name").value,
-    mobile: document.getElementById("mobile").value,
-    time: new Date().toLocaleString(),
-    status: "Collected"
-  };
+  function openModal() {
+   document.getElementById("bookingModal").style.display = "block";
+   document.getElementById("step1").style.display = "block";
+   document.getElementById("step2").style.display = "none";
+   document.getElementById("step3").style.display = "none";
+}
 
-  fetch("https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec", {
-    method: "POST",
-    body: JSON.stringify(booking)
-  })
-  .then(res => res.json())
-  .then(data => {
-    alert("Booking Added Successfully");
-    loadFromSheet();
-  });
+function closeModal() {
+   document.getElementById("bookingModal").style.display = "none";
+}
+
+function nextStep(step) {
+   document.getElementById("step1").style.display = "none";
+   document.getElementById("step2").style.display = "none";
+   document.getElementById("step3").style.display = "none";
+
+   document.getElementById("step" + step).style.display = "block";
+}
+function submitBooking() {
+   const booking = {
+      id: Date.now(),
+      name: document.getElementById("patientName").value,
+      mobile: document.getElementById("mobileStep").value,
+      time: new Date().toLocaleString(),
+      status: "Collected"
+   };
+
+   fetch("https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec", {
+      method: "POST",
+      body: JSON.stringify(booking)
+   })
+   .then(res => res.json())
+   .then(data => {
+      alert("Booking Added Successfully");
+      closeModal();
+      loadFromSheet();
+   });
 }
 function loadTable(data){
 const table=document.getElementById("bookingTable");
