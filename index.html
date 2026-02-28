@@ -154,11 +154,11 @@ padding:20px;
 
 <div class="sidebar">
 <h2>🧪 Lab Panel</h2>
-<a href="#" onclick="showSection('dashboard')">Dashboard</a>
-<a href="#" onclick="showSection('appointments')">Appointments</a>
-<a href="#" onclick="showSection('reports')">Reports</a>
-<a href="#" onclick="showSection('income')">Income</a>
-<a href="#" onclick="showSection('settings')">Settings</a>
+<a href="#" onclick="showSection('dashboard'); return false;">Dashboard</a>
+<a href="#" onclick="showSection('appointments'); return false;">Appointments</a>
+<a href="#" onclick="showSection('reports'); return false;">Reports</a>
+<a href="#" onclick="showSection('income'); return false;">Income</a>
+<a href="#" onclick="showSection('settings'); return false;">Settings</a>
 </div>
 
 <div class="main">
@@ -414,30 +414,24 @@ document.getElementById("whatsappBtn").href =
  <script>
 function showSection(section){
 
-document.getElementById("dashboardSectionPanel").style.display="none";
-document.getElementById("appointmentsSectionPanel").style.display="none";
-document.getElementById("reportsSectionPanel").style.display="none";
-document.getElementById("incomeSectionPanel").style.display="none";
-document.getElementById("settingsSectionPanel").style.display="none";
+var sections = [
+"dashboardSectionPanel",
+"appointmentsSectionPanel",
+"reportsSectionPanel",
+"incomeSectionPanel",
+"settingsSectionPanel"
+];
 
-if(section==="dashboard"){
-document.getElementById("dashboardSectionPanel").style.display="block";
+for(var i=0;i<sections.length;i++){
+var el = document.getElementById(sections[i]);
+if(el){
+el.style.display="none";
+}
 }
 
-if(section==="appointments"){
-document.getElementById("appointmentsSectionPanel").style.display="block";
-}
-
-if(section==="reports"){
-document.getElementById("reportsSectionPanel").style.display="block";
-}
-
-if(section==="income"){
-document.getElementById("incomeSectionPanel").style.display="block";
-}
-
-if(section==="settings"){
-document.getElementById("settingsSectionPanel").style.display="block";
+var active = document.getElementById(section+"SectionPanel");
+if(active){
+active.style.display="block";
 }
 
 }
