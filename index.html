@@ -154,11 +154,11 @@ padding:20px;
 
 <div class="sidebar">
 <h2>🧪 Lab Panel</h2>
-<a href="#">Dashboard</a>
-<a href="#">Appointments</a>
-<a href="#">Reports</a>
-<a href="#">Income</a>
-<a href="#">Settings</a>
+<a href="#" onclick="showSection('dashboard')">Dashboard</a>
+<a href="#" onclick="showSection('appointments')">Appointments</a>
+<a href="#" onclick="showSection('reports')">Reports</a>
+<a href="#" onclick="showSection('income')">Income</a>
+<a href="#" onclick="showSection('settings')">Settings</a>
 </div>
 
 <div class="main">
@@ -409,6 +409,37 @@ document.getElementById("payBtn").href =
 document.getElementById("whatsappBtn").href =
 "https://wa.me/919660050748?text=Hello%20Shree%20Laxmi%20Laboratory,%20I%20have%20paid%20₹"+amount+"%20please%20find%20the%20screenshot.";
 }
+}
+</script>
+ <script>
+function showSection(section){
+
+document.getElementById("dashboardSectionPanel").style.display="none";
+document.getElementById("appointmentsSectionPanel").style.display="none";
+document.getElementById("reportsSectionPanel").style.display="none";
+document.getElementById("incomeSectionPanel").style.display="none";
+document.getElementById("settingsSectionPanel").style.display="none";
+
+if(section==="dashboard"){
+document.getElementById("dashboardSectionPanel").style.display="block";
+}
+
+if(section==="appointments"){
+document.getElementById("appointmentsSectionPanel").style.display="block";
+}
+
+if(section==="reports"){
+document.getElementById("reportsSectionPanel").style.display="block";
+}
+
+if(section==="income"){
+document.getElementById("incomeSectionPanel").style.display="block";
+}
+
+if(section==="settings"){
+document.getElementById("settingsSectionPanel").style.display="block";
+}
+
 }
 </script>
 </div> <!-- main -->
