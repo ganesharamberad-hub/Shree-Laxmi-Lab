@@ -329,15 +329,29 @@ function submitBooking() {
    };
 
    fetch("https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec", {
-      method: "POST",
-      body: JSON.stringify(booking)
-   })
-   .then(res => res.json())
-   .then(data => {
-      alert("Booking Added Successfully");
-      closeModal();
-      loadFromSheet();
-   });
+  method: "POST",
+  body: JSON.stringify(booking)
+})
+.then(res => res.json())
+.then(response => {
+
+    const bookingId = response.id;
+
+    document.getElementById("step3").innerHTML = `
+    <h2 style="color:green;">Booking Successful ✔</h2>
+    <p>Your Booking ID:</p>
+    <h3>${bookingId}</h3>
+    <p>Please save this ID for future reference.</p>
+    <br>
+    <button onclick="closeModal()">Close</button>
+`;
+
+    nextStep(3);
+    loadFromSheet();
+})
+.catch(err => {
+    alert("Error submitting booking");
+});
 }
 function loadTable(data){
 const table=document.getElementById("bookingTable");
