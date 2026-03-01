@@ -332,6 +332,9 @@ function submitBooking() {
 
    fetch("https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec", {
   method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
   body: JSON.stringify(booking)
 })
 .then(res => res.json())
