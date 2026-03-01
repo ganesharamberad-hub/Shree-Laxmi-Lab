@@ -220,7 +220,7 @@ margin:2px;
 <div class="tabs">
 <div class="tab active">My Bookings</div>
 <div class="tab">Follow Up</div>
-<div class="tab">Online Leads</div>
+<div class="tab" onclick="showOnlineLeads()">Online Leads</div>
 <div class="tab">Online Bookings</div>
 </div>
 
@@ -382,6 +382,10 @@ loadTable(allBookings.filter(b=>b.status==status));
 }
 }
 
+    function showOnlineLeads() {
+    const leads = allBookings.filter(b => b.source === "Online");
+    loadTable(leads);
+}
 loadTable(allBookings);
 
 </script>
