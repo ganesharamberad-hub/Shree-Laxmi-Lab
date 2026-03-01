@@ -321,12 +321,14 @@ function nextStep(step) {
 }
 function submitBooking() {
    const booking = {
-      id: Date.now(),
-      name: document.getElementById("patientName").value,
-      mobile: document.getElementById("mobileStep").value,
-      time: new Date().toLocaleString(),
-      status: "Collected"
-   };
+  id: Date.now(),
+  name: document.getElementById("patientName").value,
+  mobile: document.getElementById("mobileStep").value,
+  test: document.getElementById("testName").value,
+  collection: document.getElementById("amount").value,
+  time: new Date().toLocaleString(),
+  status: "Pending"
+};
 
    fetch("https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec", {
   method: "POST",
