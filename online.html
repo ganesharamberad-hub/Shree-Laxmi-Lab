@@ -98,28 +98,23 @@ if(!name || !mobile || !test){
 
 fetch("https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec", {
   method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
+  mode: "no-cors",
   body: JSON.stringify({
     name: name,
     mobile: mobile,
     test: test,
-    collection: collection,
-    status: "Collected"
+    collection: collection
   })
 })
-.then(res => res.text())
-.then(data => {
+.then(() => {
   document.getElementById("msg").innerHTML = "Booking Successful ✔";
   document.getElementById("name").value = "";
   document.getElementById("mobile").value = "";
   document.getElementById("test").value = "";
   document.getElementById("collection").value = "";
 })
-.catch(err => {
-  console.log(err);
-  alert("Error Occurred");
+.catch(() => {
+  alert("Connection Issue");
 });
 
 }
