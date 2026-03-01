@@ -382,8 +382,10 @@ loadTable(allBookings.filter(b=>b.status==status));
 }
 }
 
-    function showOnlineLeads() {
-    const leads = allBookings.filter(b => b.source === "Online");
+function showOnlineLeads() {
+    const leads = allBookings.filter(b => 
+        b.source && b.source.toString().trim().toLowerCase() === "online"
+    );
     loadTable(leads);
 }
 loadTable(allBookings);
