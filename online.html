@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shree Laxmi Laboratory - Online Booking</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+body{
+  font-family: Arial;
+  background:#f4f6f9;
+  margin:0;
+  padding:20px;
+}
+
+.container{
+  max-width:400px;
+  background:white;
+  padding:20px;
+  margin:auto;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+h2{
+  text-align:center;
+  color:#2e59d9;
+}
+
+input, select{
+  width:100%;
+  padding:10px;
+  margin-bottom:12px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+button{
+  width:100%;
+  padding:10px;
+  background:#2e59d9;
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.success{
+  color:green;
+  text-align:center;
+  margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Online Test Booking</h2>
+
+<input type="text" id="name" placeholder="Full Name">
+<input type="text" id="mobile" placeholder="Mobile Number">
+
+<select id="test">
+<option value="">Select Test</option>
+<option>CBC</option>
+<option>Thyroid Profile</option>
+<option>Lipid Profile</option>
+<option>Blood Sugar</option>
+<option>Bharat Fit 5</option>
+</select>
+
+<select id="collection">
+<option value="">Home Collection?</option>
+<option>Yes</option>
+<option>No</option>
+</select>
+
+<button onclick="submitBooking()">Book Now</button>
+
+<div class="success" id="msg"></div>
+
+</div>
+
+<script>
+
+function submitBooking(){
+
+const name=document.getElementById("name").value;
+const mobile=document.getElementById("mobile").value;
+const test=document.getElementById("test").value;
+const collection=document.getElementById("collection").value;
+
+if(!name || !mobile || !test){
+  alert("Please fill all required fields");
+  return;
+}
+
+fetch("https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec",{
+method:"POST",
+body:JSON.stringify({
+name:name,
+mobile:mobile,
+test:test,
+collection:collection,
+status:"Collected"
+})
+})
+.then(res=>res.text())
+.then(data=>{
+document.getElementById("msg").innerHTML="Booking Successful ✔";
+document.getElementById("name").value="";
+document.getElementById("mobile").value="";
+document.getElementById("test").value="";
+document.getElementById("collection").value="";
+})
+.catch(err=>alert("Error Occurred"));
+
+}
+
+</script>
+
+</body>
+</html>
