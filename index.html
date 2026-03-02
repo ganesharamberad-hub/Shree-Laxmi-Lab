@@ -369,8 +369,14 @@ table.innerHTML+=`
 <td>${b.name}</td>
 <td>${b.mobile}</td>
 <td>${b.time}</td>
-<td>${b.status}</td>
 <td>
+  <select onchange="updateStatus('${b.id}', this.value)">
+    <option value="Pending" ${b.status === 'Pending' ? 'selected' : ''}>Pending</option>
+    <option value="Collected" ${b.status === 'Collected' ? 'selected' : ''}>Collected</option>
+    <option value="Processed" ${b.status === 'Processed' ? 'selected' : ''}>Processed</option>
+    <option value="Printed" ${b.status === 'Printed' ? 'selected' : ''}>Printed</option>
+  </select>
+</td>
 <button onclick="updateStatus('${b.id}','Processed')">Processed</button>
 <button onclick="updateStatus('${b.id}','Printed')">Printed</button>
 </td>
@@ -395,6 +401,30 @@ function showOnlineLeads() {
 }
 loadTable(allBookings);
 
+function updateStatus(id, status) {
+
+  fetch("https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      action: "updateStatus",
+      id: id,
+      status: status
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert("Status Updated");
+    location.reload();
+  })
+  .catch(err => {
+    alert("Error updating status");
+    console.log(err);
+  });
+
+}
 </script>
 
 </body>
