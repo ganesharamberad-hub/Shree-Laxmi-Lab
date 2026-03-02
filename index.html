@@ -5,195 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:#f4f6f9;
-}
-
-/* SIDEBAR */
-.sidebar{
-position:fixed;
-width:230px;
-height:100%;
-background:#1f2d3d;
-color:white;
-padding-top:20px;
-}
-
-.sidebar h2{
-text-align:center;
-margin-bottom:30px;
-}
-
-.sidebar a{
-display:block;
-color:white;
-padding:12px 20px;
-text-decoration:none;
-}
-
-.sidebar a:hover{
-background:#32475b;
-}
-
-/* MAIN */
-.main{
-margin-left:230px;
-padding:20px;
-}
-
-/* TOP BAR */
-.topbar{
-background:white;
-padding:15px;
-border-radius:8px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
-}
-
-.badge{
-background:linear-gradient(45deg,#4e73df,#1cc88a);
-color:white;
-padding:8px 15px;
-border-radius:20px;
-font-weight:bold;
-}
-
-/* TABS */
-.tabs{
-display:flex;
-gap:15px;
-margin-bottom:15px;
-}
-
-.tab{
-padding:10px 15px;
-background:#e2e6ea;
-border-radius:6px;
-cursor:pointer;
-}
-
-.tab.active{
-background:#4e73df;
-color:white;
-}
-
-/* FILTER BUTTONS */
-.filters{
-margin-bottom:15px;
-}
-
-.filters button{
-padding:6px 12px;
-border:none;
-border-radius:5px;
-margin-right:5px;
-cursor:pointer;
-}
-
-tr.collected { background:#d1ecf1; }
-tr.acknowledged { background:#cce5ff; }
-tr.processed { background:#d4edda; }
-tr.printed { background:#d1f2eb; }
-tr.psn { background:#f8d7da; }
-tr:hover {
-    transform: scale(1.01);
-    transition: 0.2s;
-}
-  button {
-    padding:6px 10px;
-    border:none;
-    border-radius:4px;
-    cursor:pointer;
-    font-size:12px;
-}
-
-button:first-child {
-    background:#28a745;
-    color:white;
-}
-
-button:last-child {
-    background:#007bff;
-    color:white;
-}
-  thead {
-    position: sticky;
-    top: 0;
-    background: #2f5bd3;
-    color: white;
-}
-/* TABLE */
-table{
-width:100%;
-background:white;
-border-radius:8px;
-overflow:hidden;
-border-collapse:collapse;
-}
-
-th{
-background:#2e59d9;
-color:white;
-padding:10px;
-}
-.table-container{
-    max-height:500px;
-    overflow-y:auto;
-}
-  
-td{
-padding:8px;
-text-align:center;
-border-bottom:1px solid #ddd;
-}
-
-tr.green{
-background:#d4edda;
-}
-
-.view-btn{
-background:#6f42c1;
-color:white;
-border:none;
-padding:5px 10px;
-border-radius:5px;
-cursor:pointer;
-}
-
-.icon-btn{
-background:#4e73df;
-color:white;
-border:none;
-padding:5px 8px;
-border-radius:5px;
-cursor:pointer;
-margin:2px;
-}
-    
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  width: 350px;
-  max-width: 90%;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-  max-height: 80vh;      
-  overflow-y: auto;      
-}
+body{margin:0;font-family:Arial;background:#f4f6f9;}
+.sidebar{position:fixed;width:230px;height:100%;background:#1f2d3d;color:white;padding-top:20px;}
+.sidebar h2{text-align:center;margin-bottom:30px;}
+.sidebar a{display:block;color:white;padding:12px 20px;text-decoration:none;}
+.sidebar a:hover{background:#32475b;}
+.main{margin-left:230px;padding:20px;}
+.topbar{background:white;padding:15px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.badge{background:linear-gradient(45deg,#4e73df,#1cc88a);color:white;padding:8px 15px;border-radius:20px;font-weight:bold;}
+.tabs{display:flex;gap:15px;margin-bottom:15px;}
+.tab{padding:10px 15px;background:#e2e6ea;border-radius:6px;cursor:pointer;}
+.tab.active{background:#4e73df;color:white;}
+.filters{margin-bottom:15px;}
+.filters button{padding:6px 12px;border:none;border-radius:5px;margin-right:5px;cursor:pointer;}
+table{width:100%;background:white;border-radius:8px;overflow:hidden;border-collapse:collapse;}
+th{background:#2e59d9;color:white;padding:10px;}
+td{padding:8px;text-align:center;border-bottom:1px solid #ddd;}
+thead{position:sticky;top:0;background:#2f5bd3;color:white;}
+.table-container{max-height:500px;overflow-y:auto;}
+button{padding:6px 10px;border:none;border-radius:4px;cursor:pointer;font-size:12px;}
+.modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,0.5);justify-content:center;align-items:center;}
+.modal-content{background:white;padding:20px;width:350px;max-width:90%;border-radius:10px;}
 </style>
 </head>
 
@@ -203,71 +35,27 @@ margin:2px;
 <h2>Shree Laxmi</h2>
 <a href="#">Dashboard</a>
 <a href="#">Bookings</a>
-<a href="#">Ledger</a>
-<a href="#">Inventory</a>
-<a href="#">Billing</a>
-<a href="#">Report Status</a>
-<a href="#">Logout</a>
 </div>
 
 <div class="main">
 
 <div class="topbar">
 <div class="badge">YOUR BADGE IS BRONZE</div>
-<button class="icon-btn" onclick="openModal()">+ New Booking</button>
+<button onclick="openModal()">+ New Booking</button>
 </div>
 
 <div class="tabs">
 <div class="tab active">My Bookings</div>
-<div class="tab">Follow Up</div>
 <div class="tab" onclick="showOnlineLeads()">Online Leads</div>
-<div class="tab">Online Bookings</div>
 </div>
 
 <div class="filters">
 <button onclick="filterStatus('all')">All</button>
-<button class="collected" onclick="filterStatus('Collected')">Collected</button>
-<button class="ack" onclick="filterStatus('Acknowledged')">Acknowledged</button>
-<button class="processed" onclick="filterStatus('Processed')">Processed</button>
-<button class="printed" onclick="filterStatus('Printed')">Printed</button>
-<button class="psn" onclick="filterStatus('PSN')">PSN/SNR</button>
+<button onclick="filterStatus('Collected')">Collected</button>
+<button onclick="filterStatus('Processed')">Processed</button>
+<button onclick="filterStatus('Printed')">Printed</button>
 </div>
 
-  <div id="bookingModal" class="modal">
-
-  <div class="modal-content">
-
-    <div id="step1">
-      <h3>Enter Mobile Number</h3>
-      <input type="text" id="mobileStep" placeholder="Mobile Number" style="width:100%; padding:8px;">
-      <br><br>
-      <button onclick="nextStep(2)">Next</button>
-    </div>
-
-    <div id="step2" style="display:none;">
-      <h3>Patient Details</h3>
-      <input type="text" id="patientName" placeholder="Patient Name" style="width:100%; padding:8px;"><br><br>
-      <input type="number" id="age" placeholder="Age" style="width:100%; padding:8px;"><br><br>
-      <select id="gender" style="width:100%; padding:8px;">
-        <option>Male</option>
-        <option>Female</option>
-      </select>
-      <br><br>
-      <button onclick="nextStep(3)">Next</button>
-    </div>
-
-    <div id="step3" style="display:none;">
-      <h3>Test & Payment</h3>
-      <input type="text" id="testName" placeholder="Test Name" style="width:100%; padding:8px;"><br><br>
-      <input type="number" id="amount" placeholder="Amount" style="width:100%; padding:8px;"><br><br>
-      <button onclick="submitBooking()">Submit Booking</button>
-    </div>
-
-    <br>
-    <button onclick="closeModal()">Cancel</button>
-
-  </div>
-</div>
 <div class="table-container">
 <table>
 <thead>
@@ -275,7 +63,7 @@ margin:2px;
 <th>ID</th>
 <th>Name</th>
 <th>Mobile</th>
-<th>Report Time</th>
+<th>Time</th>
 <th>Status</th>
 <th>Action</th>
 </tr>
@@ -289,146 +77,93 @@ margin:2px;
 <script>
 
 let allBookings = [];
+const API_URL = "https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec";
 
 function loadFromSheet(){
-fetch("https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec")
+fetch(API_URL)
 .then(res=>res.json())
 .then(data=>{
 allBookings=data;
 loadTable(allBookings);
 })
-.catch(err=>console.log("Error:",err));
+.catch(err=>{
+console.log(err);
+alert("Error loading data");
+});
 }
 
 loadFromSheet();
-  function openModal() {
-  document.getElementById("bookingModal").style.display = "flex";
-  document.getElementById("step1").style.display = "block";
-  document.getElementById("step2").style.display = "none";
-  document.getElementById("step3").style.display = "none";
-}
 
-function closeModal() {
-   document.getElementById("bookingModal").style.display = "none";
-}
-
-function nextStep(step) {
-   document.getElementById("step1").style.display = "none";
-   document.getElementById("step2").style.display = "none";
-   document.getElementById("step3").style.display = "none";
-
-   document.getElementById("step" + step).style.display = "block";
-}
-function submitBooking() {
-   const booking = {
-  id: Date.now(),
-  name: document.getElementById("patientName").value,
-  mobile: document.getElementById("mobileStep").value,
-  test: document.getElementById("testName").value,
-  collection: document.getElementById("amount").value,
-  time: new Date().toLocaleString(),
-  status: "Pending"
-};
-
-   fetch("https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(booking)
-})
-.then(res => res.json())
-.then(response => {
-
-    const bookingId = response.id;
-
-    document.getElementById("step3").innerHTML = `
-    <h2 style="color:green;">Booking Successful ✔</h2>
-    <p>Your Booking ID:</p>
-    <h3>${bookingId}</h3>
-    <p>Please save this ID for future reference.</p>
-    <br>
-    <button onclick="closeModal()">Close</button>
-`;
-
-    nextStep(3);
-    loadFromSheet();
-})
-.catch(err => {
-    alert("Error submitting booking");
-});
-}
 function loadTable(data){
 const table=document.getElementById("bookingTable");
 table.innerHTML="";
 
 data.forEach(b=>{
 table.innerHTML+=`
-<tr class="${b.status.toLowerCase()}">
+<tr>
 <td>${b.id}</td>
 <td>${b.name}</td>
 <td>${b.mobile}</td>
 <td>${b.time}</td>
+
 <td>
-  <select onchange="updateStatus('${b.id}', this.value)">
-    <option value="Pending" ${b.status === 'Pending' ? 'selected' : ''}>Pending</option>
-    <option value="Collected" ${b.status === 'Collected' ? 'selected' : ''}>Collected</option>
-    <option value="Processed" ${b.status === 'Processed' ? 'selected' : ''}>Processed</option>
-    <option value="Printed" ${b.status === 'Printed' ? 'selected' : ''}>Printed</option>
-  </select>
+<select onchange="updateStatus('${b.id}', this.value)">
+<option value="Pending" ${b.status==="Pending"?"selected":""}>Pending</option>
+<option value="Collected" ${b.status==="Collected"?"selected":""}>Collected</option>
+<option value="Processed" ${b.status==="Processed"?"selected":""}>Processed</option>
+<option value="Printed" ${b.status==="Printed"?"selected":""}>Printed</option>
+</select>
 </td>
+
+<td>
 <button onclick="updateStatus('${b.id}','Processed')">Processed</button>
 <button onclick="updateStatus('${b.id}','Printed')">Printed</button>
 </td>
+
 </tr>
 `;
 });
 }
 
 function filterStatus(status){
-if(status=="all"){
+if(status==="all"){
 loadTable(allBookings);
 }else{
-loadTable(allBookings.filter(b=>b.status==status));
+loadTable(allBookings.filter(b=>b.status===status));
 }
 }
 
-function showOnlineLeads() {
-    const leads = allBookings.filter(b => 
-        b.source && b.source.toString().trim().toLowerCase() === "online"
-    );
-    loadTable(leads);
+function showOnlineLeads(){
+const leads=allBookings.filter(b=>b.source && b.source.toLowerCase()==="online");
+loadTable(leads);
 }
-loadTable(allBookings);
 
-function updateStatus(id, status) {
+function updateStatus(id,status){
 
-  fetch("https://script.google.com/macros/s/AKfycbwOj6IBtK6Mb_Z6E8apfSk13JfTawQOyDua3o7K8xzn2ixDmxf4h53OYWoFPtavSwR6/exec", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      action: "updateStatus",
-      id: id,
-      status: status
-    })
-  })
-  .then(res => res.json())
-.then(data => {
-    if (data.success) {
-        alert("Status Updated");
-        location.reload();
-    } else {
-        alert("Error updating status");
-    }
+fetch(API_URL,{
+method:"POST",
+headers:{ "Content-Type":"application/json" },
+body:JSON.stringify({
+action:"updateStatus",
+id:id,
+status:status
 })
-.catch(err => {
-    console.log(err);
-    alert("Error updating status");
-});
-
+})
+.then(res=>res.json())
+.then(data=>{
+if(data.success){
+alert("Status Updated Successfully");
+loadFromSheet();
+}else{
+alert("Update Failed");
 }
+})
+.catch(err=>{
+console.log(err);
+alert("Error updating status");
+});
+}
+
 </script>
 
 </body>
